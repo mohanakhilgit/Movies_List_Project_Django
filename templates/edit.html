@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>{{ movie.name}}</h1><br>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-danger btn-lg" type="reset">Cancel</button>
+    <button class="btn btn-outline-success btn-lg" type="submit">Save Changes</button>
+</form>
+
+
+{% endblock %}

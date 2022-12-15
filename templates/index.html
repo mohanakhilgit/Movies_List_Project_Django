@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container" style="text-align:center;">
+    <div class="row">
+        {% for movie in movie_list %}
+
+        <div class="col-md-4">
+            <div class="card text-white bg-dark mb-3 mx-auto" style="width: 300px; height: 340px;">
+                <div class="movie">
+
+                    <div class="card-body">
+                        <a style="color:rgb(248, 233, 233);" href="{% url 'website:detail' movie.id %}">
+                            <h5 class="card-title">{{ movie.id }}. {{ movie.name }} </h5>
+                            <h5>({{ movie.year }})</h5>
+                            <img style="height: 300px;" src="{{ movie.img.url }}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+        
+    </div>
+
+    <a class="btn btn-outline-dark btn-lg" role="button" href="{% url 'website:add' %}" 
+    style="margin-top: 100px;">Add Movie</a>
+
+</div>
+
+
+{% endblock %}
